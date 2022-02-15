@@ -7,5 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Arif Suganda",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "dotenv-safe": "^8.2.0",
+    "stein-js-client": "^0.0.2"
+  }
 }
