@@ -1,0 +1,11 @@
+{
+  "name": "platform-engineer-test",
+  "version": "1.0.0",
+  "description": "test for platform engineer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arif Suganda",
+  "license": "ISC"
+}
