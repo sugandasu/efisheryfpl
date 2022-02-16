@@ -4,7 +4,7 @@
   "description": "test for platform engineer",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "export NODE_ENV=test && mocha 'test/**/*.js'"
   },
   "author": "Arif Suganda",
   "license": "ISC",
