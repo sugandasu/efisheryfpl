@@ -7,7 +7,7 @@ module.exports = function checkSuccessResponse(res) {
     ) {
       return {
         success: false,
-        data: "Data tidak boleh kosong",
+        data: "Data array tidak boleh kosong",
       };
     }
     if (
@@ -17,7 +17,7 @@ module.exports = function checkSuccessResponse(res) {
     ) {
       return {
         success: false,
-        data: "Format data harus array",
+        data: "Format data harus berupa array",
       };
     }
     if (
