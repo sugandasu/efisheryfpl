@@ -16,7 +16,12 @@ module.exports = function convertToReadableSteinError(err) {
   ) {
     return {
       success: false,
-      data: `Data kosong tidak dapat diupload`,
+      data: `Data tidak boleh kosong`,
+    };
+  } else if (err.message.includes("Not all required params were supplied")) {
+    return {
+      success: false,
+      data: `Data tidak boleh kosong`,
     };
   }
 
