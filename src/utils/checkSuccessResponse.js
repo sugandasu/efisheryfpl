@@ -7,7 +7,7 @@ module.exports = function checkSuccessResponse(res) {
     ) {
       return {
         success: false,
-        data: "Data kosong tidak dapat tambahkan",
+        data: "Data tidak boleh kosong",
       };
     }
     if (
@@ -17,7 +17,7 @@ module.exports = function checkSuccessResponse(res) {
     ) {
       return {
         success: false,
-        data: "Format data tidak berupa array",
+        data: "Format data harus array",
       };
     }
     if (
@@ -27,7 +27,17 @@ module.exports = function checkSuccessResponse(res) {
     ) {
       return {
         success: false,
-        data: "Format data berupa empty set",
+        data: "Format data tidak boleh set kosong",
+      };
+    }
+    if (
+      res.error.includes(
+        "(array `req.body`) Expected `t` to be of type `object` but received type `null`"
+      )
+    ) {
+      return {
+        success: false,
+        data: "Data tidak boleh kosong",
       };
     }
   }
