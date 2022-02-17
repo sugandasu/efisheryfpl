@@ -8,7 +8,7 @@ module.exports = function getAll(options) {
       const { search, limit, offset } = options;
       const resultSearchData = await searchData(
         sheetName,
-        search,
+        search ?? {},
         limit,
         offset
       );
