@@ -8,8 +8,8 @@ module.exports = function dataIsInRange(type, range, value) {
   }
   if (type === "number") {
     const valueInt = parseToInt(value);
-    const min = parseToInt(min);
-    const max = parseToInt(max);
+    const min = parseToInt(range.min);
+    const max = parseToInt(range.max);
 
     if (valueInt === false || min === false || max === false) {
       return false;
