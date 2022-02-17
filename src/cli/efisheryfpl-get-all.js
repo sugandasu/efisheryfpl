@@ -5,6 +5,7 @@ const orderData = require("../helper/orderData");
 const cleanData = require("../helper/cleanData");
 const filterRangeData = require("../helper/filterRangeData");
 const limitData = require("../helper/limitData");
+const addUsdToData = require("../helper/addUsdToData");
 const getAll = require("../lib/getAll");
 const convertRangeToRangeObject = require("../helper/convertRangeToRangeObject");
 const dataIsEmpty = require("../utils/dataIsEmpty");
@@ -30,7 +31,8 @@ command
     `Urut data berdasarkan kolom, kolom(${columnList.join(", ")})`,
     "tanggal"
   )
-  .option("--order-direction <direction>", `Pengurutan data (asc/desc)`, "asc");
+  .option("--order-direction <direction>", `Pengurutan data (asc/desc)`, "asc")
+  .option("--to-usd", `Tambahkan usd`);
 
 command.action((options) => {
   const searchOptions = {};
@@ -71,6 +73,10 @@ command.action((options) => {
 
     if (!dataIsEmpty(options.limit)) {
       optionalData = limitData(optionalData, options.limit, options.offset);
+    }
+
+    if (!dataIsEmpty(options.toUsd)) {
+      optionalData = addUsdToData(optionalData);
     }
 
     console.log({ success: data.success, data: optionalData });
