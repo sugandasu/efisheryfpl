@@ -1,25 +1,24 @@
 const dataIsEmpty = require("./dataIsEmpty");
 const parseToDate = require("../utils/parseToDate");
+const parseToInt = require("../utils/parseToInt");
 
 module.exports = function dataIsInRange(type, range, value) {
   if (dataIsEmpty(value)) {
     return false;
   }
   if (type === "number") {
-    if (typeof value !== "number" || isNaN(value)) {
+    const valueInt = parseToInt(value);
+    const min = parseToInt(min);
+    const max = parseToInt(max);
+
+    if (valueInt === false || min === false || max === false) {
       return false;
     }
 
-    if (
-      (range.min && typeof range.min !== "number") ||
-      (range.min && typeof range.min === "number" && value < range.min)
-    ) {
+    if (valueInt < min) {
       return false;
     }
-    if (
-      (range.max && typeof range.max !== "number") ||
-      (range.max && typeof range.max === "number" && value > range.max)
-    ) {
+    if (valueInt > max) {
       return false;
     }
 
