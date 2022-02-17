@@ -9,7 +9,9 @@ module.exports = function limitData(data, limit, offset = 0) {
   const start = parseToInt(offset);
   const end = parseToInt(limit);
 
-  if (start !== false && end !== false) {
-    return data.slice(start, start + end);
+  if (start === false && end === false) {
+    return [];
   }
+
+  return data.splice(start, start + end);
 };
