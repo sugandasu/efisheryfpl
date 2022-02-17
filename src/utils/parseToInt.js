@@ -1,7 +1,7 @@
 const dataIsEmpty = require("./dataIsEmpty");
 
 module.exports = function parseToInt(value) {
-  if (dataIsEmpty(limit)) {
+  if (dataIsEmpty(value)) {
     return false;
   }
 
