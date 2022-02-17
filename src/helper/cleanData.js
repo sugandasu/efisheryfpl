@@ -1,6 +1,6 @@
 const dataIsEmpty = require("../utils/dataIsEmpty");
 const { columnList, sheetList } = require("./getCliVariables");
-const parseSheetDateTipe = require("./parseSheetDateTipe");
+const parseSheetDateTime = require("./parseSheetDateTime");
 
 module.exports = function cleanData(data) {
   if (dataIsEmpty(data)) {
@@ -16,7 +16,7 @@ module.exports = function cleanData(data) {
           Object.keys(item).map((key) => {
             if (!dataIsEmpty(item[key]) && sheetList.indexOf(key) !== -1) {
               let value = item[key];
-              value = parseSheetDateTipe(key, value);
+              value = parseSheetDateTime(key, value);
               if (key === "size" || key === "price") {
                 value = parseInt(value);
               }
