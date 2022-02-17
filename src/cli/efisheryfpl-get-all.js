@@ -14,8 +14,12 @@ const command = new Command("all");
 
 command
   .description("Get all data harga perikanan di Indonesia")
-  .option("-l, --limit [number]", "Jumlah data")
-  .option("-o, --offset <number>", "Lewati data", 0)
+  .option("-l, --limit [number]", "Jumlah data maksimum yang ditampilkan")
+  .option(
+    "-o, --offset <number>",
+    "Jumlah data yang akan dilewati dari awal data",
+    0
+  )
   .option(
     "-s, --search <kolom=nilai...>",
     `Cari data berdasarkan daftar kolom=nilai, cth: komoditas="Ikan Salmon" area_kota="Buleleng". Kolom (${columnList.join(
@@ -24,15 +28,19 @@ command
   )
   .option(
     "--range <kolom=min,max...>",
-    `Cari data berdasarkan daftar kolom=nilai, cth: harga=50000,150000 tanggal="2022-02-15","2022-02-30". Kolom (harga, size, tanggal)`
+    `Cari data berdasarkan range dari kolom=min,max. Cth: harga=50000,150000 tanggal="2022-02-15","2022-02-30". Kolom (harga, size, tanggal)`
   )
   .option(
     "--order <kolom>",
-    `Urut data berdasarkan kolom, kolom(${columnList.join(", ")})`,
+    `Urut data berdasarkan kolom. Kolom(${columnList.join(", ")})`,
     "tanggal"
   )
-  .option("--order-direction <direction>", `Pengurutan data (asc/desc)`, "asc")
-  .option("--to-usd", `Tambahkan usd`);
+  .option(
+    "--order-direction <direction>",
+    `Tipe pengurutan data (asc/desc)`,
+    "asc"
+  )
+  .option("--to-usd", `Tambahkan kolom konversi dari rupiah ke dollar`);
 
 command.action((options) => {
   const searchOptions = {};
