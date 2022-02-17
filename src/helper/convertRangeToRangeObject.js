@@ -9,7 +9,13 @@ function convertRangeToRangeObject(rangeList) {
 
   const newRangeList = {};
   rangeList.forEach((search) => {
+    if (!search.includes("=")) {
+      return;
+    }
     let [key, value] = search.split("=");
+    if (!value.includes(",")) {
+      return;
+    }
     let [min, max] = value.split(",");
 
     if (key === "harga" || key === "size" || key === "tanggal") {
