@@ -7,7 +7,7 @@ module.exports = function deleteRecords(id) {
     try {
       const sheetName = FISH_PRICE_SHEETNAME;
       if (dataIsEmpty(id)) {
-        return resolve({ success: false, data: "Id tidak boleh kosong" });
+        return resolve({ success: false, message: "Id tidak boleh kosong" });
       }
 
       const resultDeleteData = await deleteData(sheetName, { uuid: id });
