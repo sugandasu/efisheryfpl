@@ -22,11 +22,11 @@ module.exports = function validateOptionalFishPrice(set) {
         newSet.size = set.size;
       }
     }
-    if (set.hasOwnProperty("price")) {
-      if (typeof set.price !== "number" || set.price === isNaN) {
-        errors.price = ["Format harga harus berupa angka"];
+    if (set.hasOwnProperty("harga")) {
+      if (typeof set.harga !== "number" || set.harga === isNaN) {
+        errors.harga = ["Format harga harus berupa angka"];
       } else {
-        newSet.price = set.price;
+        newSet.price = set.harga;
       }
     }
     if (set.hasOwnProperty("tanggal")) {
