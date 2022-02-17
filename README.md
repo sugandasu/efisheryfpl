@@ -59,9 +59,9 @@ efisheryfpl get all
 | --order           | Urut data berdasarkan kolom. Kolom (uuid,         | Kolom            | Optional    |
 |                   | komoditas, area_provinsi, area_kota, size, harga, |                  | (tanggal)   |
 |                   | tanggal, timestamp)                               |                  |             |
-| --order-direction | Pengurutan data                                   | asc/desc         | Optional    |
+| --order-direction | Tipe pengurutan data                              | asc/desc         | Optional    |
 |                   |                                                   |                  | (asc)       |
-| --to-usd          | Tambahkan colom konversi harga dari rupiah ke     | true/false       | Optional    |
+| --to-usd          | Tambahkan kolom konversi harga dari rupiah ke     | true/false       | Optional    |
 |                   | dollar                                            |                  | (false)     |
 | -h, --help        | display help for command                          | true/false       | Optional    |
 |                   |                                                   |                  |             |
