@@ -7,13 +7,13 @@ module.exports = function addOneData(sheetName, data) {
   if (dataIsEmpty(data)) {
     return {
       success: false,
-      data: "Data tidak boleh kosong",
+      message: "Data tidak boleh kosong",
     };
   }
   if (!(typeof data === "object" && !Array.isArray(data))) {
     return {
       success: false,
-      data: "Format data harus berupa set",
+      message: "Format data harus berupa set",
     };
   }
 

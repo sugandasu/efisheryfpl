@@ -12,14 +12,14 @@ module.exports = function updateData(sheetName, search, set, limit) {
       if (Object.keys(search).length === 0) {
         return resolve({
           success: false,
-          data: "Data search tidak boleh kosong",
+          message: "Data search tidak boleh kosong",
         });
       }
       options.search = search;
     } else {
       return resolve({
         success: false,
-        data: "Data search harus berupa object",
+        message: "Data search harus berupa object",
       });
     }
     if (typeof set === "object") {
@@ -27,7 +27,7 @@ module.exports = function updateData(sheetName, search, set, limit) {
     } else {
       return resolve({
         success: false,
-        data: "Data set harus berupa object",
+        message: "Data set harus berupa object",
       });
     }
     if (typeof limit === "number") {

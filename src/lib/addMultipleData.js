@@ -7,19 +7,19 @@ module.exports = function addMultipleData(sheetName, data) {
   if (dataIsEmpty(data)) {
     return {
       success: false,
-      data: "Data tidak boleh kosong",
+      message: "Data tidak boleh kosong",
     };
   }
   if (!Array.isArray(data)) {
     return {
       success: false,
-      data: "Format data harus berupa array",
+      message: "Format data harus berupa array",
     };
   }
   if (data.length === 0) {
     return {
       success: false,
-      data: "Data array tidak boleh kosong",
+      message: "Data array tidak boleh kosong",
     };
   }
 

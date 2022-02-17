@@ -12,14 +12,14 @@ module.exports = function deleteData(sheetName, search, limit) {
       if (Object.keys(search).length === 0) {
         return resolve({
           success: false,
-          data: "Data search tidak boleh kosong",
+          message: "Data search tidak boleh kosong",
         });
       }
       options.search = search;
     } else {
       return resolve({
         success: false,
-        data: "Format data search harus berupa object",
+        message: "Format data search harus berupa object",
       });
     }
     if (typeof limit === "number") {

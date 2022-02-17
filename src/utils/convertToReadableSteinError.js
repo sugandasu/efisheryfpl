@@ -2,12 +2,12 @@ module.exports = function convertToReadableSteinError(err) {
   if (err.message.includes("Unable to parse range")) {
     return {
       success: false,
-      data: `Nama sheet ${sheetName} tidak valid`,
+      message: `Nama sheet ${sheetName} tidak valid`,
     };
   } else if (err.message.includes("API does not exist")) {
     return {
       success: false,
-      data: `Link api ${steinStore.url} tidak ditemukan`,
+      message: `Link api ${steinStore.url} tidak ditemukan`,
     };
   } else if (
     err.message.includes(
@@ -16,17 +16,17 @@ module.exports = function convertToReadableSteinError(err) {
   ) {
     return {
       success: false,
-      data: `Data tidak boleh kosong`,
+      message: `Data tidak boleh kosong`,
     };
   } else if (err.message.includes("Not all required params were supplied")) {
     return {
       success: false,
-      data: `Data tidak boleh kosong`,
+      message: `Data tidak boleh kosong`,
     };
   }
 
   return {
     success: false,
-    data: err.message,
+    message: err.message,
   };
 };

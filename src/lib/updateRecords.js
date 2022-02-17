@@ -9,10 +9,10 @@ module.exports = function updateRecord(id, set) {
     try {
       const sheetName = FISH_PRICE_SHEETNAME;
       if (dataIsEmpty(id)) {
-        return resolve({ success: false, data: "Id tidak boleh kosong" });
+        return resolve({ success: false, message: "Id tidak boleh kosong" });
       }
       if (dataIsEmpty(set)) {
-        resolve({ success: false, data: "Data set tidak boleh kosong" });
+        resolve({ success: false, message: "Data set tidak boleh kosong" });
       }
 
       const { newSet, errors } = validateOptionalFishPrice(set);
@@ -22,7 +22,7 @@ module.exports = function updateRecord(id, set) {
       }
 
       if (dataIsEmpty(newSet)) {
-        resolve({ success: false, data: "Data set tidak boleh kosong" });
+        resolve({ success: false, message: "Data set tidak boleh kosong" });
       }
 
       const resultUpdateData = await updateData(
