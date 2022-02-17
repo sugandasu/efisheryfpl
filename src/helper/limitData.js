@@ -1,9 +1,15 @@
 const dataIsEmpty = require("../utils/dataIsEmpty");
+const parseToInt = require("../utils/parseToInt");
 
 module.exports = function limitData(data, limit, offset = 0) {
-  if (dataIsEmpty(data) || dataIsEmpty(limit) || dataIsEmpty(offset)) {
-    return data;
+  if (dataIsEmpty(data) && !Array.isArray(data)) {
+    return [];
   }
 
-  return data.slice(offset, limit + offset);
+  const start = parseToInt(offset);
+  const end = parseToInt(limit);
+
+  if (start !== false && end !== false) {
+    return data.slice(start, start + end);
+  }
 };
