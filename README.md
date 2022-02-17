@@ -64,7 +64,6 @@ efisheryfpl get all
 | --to-usd          | Tambahkan kolom konversi harga dari rupiah ke     | true/false       | Optional    |
 |                   | dollar                                            |                  | (false)     |
 | -h, --help        | display help for command                          | true/false       | Optional    |
-|                   |                                                   |                  |             |
 
 ## License
 

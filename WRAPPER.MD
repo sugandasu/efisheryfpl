@@ -36,7 +36,6 @@ Then modify **all the parameter** whithin the .env file
 | harga         | Harga ikan              | Number | Required    |
 | tanggal       | Tanggal transaksi       | Date   | Required    |
 | timestamp     | Timestamp transaksi     | Date   | Required    |
-|               |                         |        |             |
 
 #### Add Records Return Value
 
@@ -75,7 +74,6 @@ wrapper
 | harga         | Harga ikan              | Number | Optional    |
 | tanggal       | Tanggal transaksi       | Date   | Optional    |
 | timestamp     | Timestamp transaksi     | Date   | Optional    |
-|               |                         |        |             |
 
 #### Update Records Return Value
 
@@ -107,7 +105,6 @@ wrapper
 | Parameter | Description | Format | Requirement |
 | --------- | ----------- | ------ | ----------- |
 | id        | Id data     | String | Required    |
-|           |             |        |             |
 
 #### Delete Records Return Value
 
@@ -129,7 +126,6 @@ wrapper.deleteRecords("6eaa323d-sfds-2223-8c38-5ba212f21b5d").then((data) => {
 | Parameter | Description                        | Format                             | Requirement |
 | --------- | ---------------------------------- | ---------------------------------- | ----------- |
 | options   | Object data (harga, size, tanggal) | Object({min?: value, max?: value}) | Optional    |
-|           |                                    |                                    |             |
 
 #### Get All By Range Return Value
 
@@ -157,7 +153,6 @@ wrapper
 | Parameter | Description | Format | Requirement |
 | --------- | ----------- | ------ | ----------- |
 | komoditas | Nama ikan   | String | Required    |
-|           |             |        |             |
 
 #### Get All By Commodity Return Value
 
@@ -179,7 +174,6 @@ wrapper.getAllByCommodity("Ikan Lele").then((data) => {
 | Parameter | Description | Format | Requirement |
 | --------- | ----------- | ------ | ----------- |
 | id        | Id data     | String | Required    |
-|           |             |        |             |
 
 #### Get By Id Return Value
 
@@ -201,7 +195,6 @@ wrapper.getById("6eaa323d-sfds-2223-8c38-5ba212f21b5d").then((data) => {
 | Parameter | Description                            | Format         | Requirement |
 | --------- | -------------------------------------- | -------------- | ----------- |
 | options   | Object data (area_provinsi, area_kota) | Object(string) | Optional    |
-|           |                                        |                |             |
 
 #### Get By Area Return Value
 
@@ -225,7 +218,6 @@ wrapper
 | Parameter | Description                   | Format                                    | Requirement |
 | --------- | ----------------------------- | ----------------------------------------- | ----------- |
 | options   | Object data (week, komoditas) | Object({week?:number, komoditas?:string}) | Optional    |
-|           |                               |                                           |             |
 
 #### Get Max Price Return Value
 
