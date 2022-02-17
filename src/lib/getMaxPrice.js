@@ -4,6 +4,7 @@ const dataIsEmpty = require("../utils/dataIsEmpty");
 const moment = require("moment");
 const dataIsInRange = require("../utils/dataIsInRange");
 const parseToDate = require("../utils/parseToDate");
+const parseToInt = require("../utils/parseToInt");
 
 module.exports = function getMaxPrice(filter) {
   return new Promise(async (resolve, _) => {
@@ -25,8 +26,8 @@ module.exports = function getMaxPrice(filter) {
         !Array.isArray(filter)
       ) {
         if (filter.hasOwnProperty("week")) {
-          const weekInt = parseInt(filter.week);
-          if (typeof weekInt === "number" && !isNaN(weekInt)) {
+          const weekInt = parseToInt(filter.week);
+          if (weekInt !== false) {
             const thisWeekStart = moment().isoWeek(weekInt).startOf("isoWeek");
             const thisWeekEnd = moment().isoWeek(weekInt).endOf("isoWeek");
             const thisWeekStartDate = new Date(
