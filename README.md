@@ -54,8 +54,8 @@ efisheryfpl get all
 |                   | komoditas="Ikan Salmon" area_kota="Buleleng".     | Kolom2=Nilai2    |             |
 |                   | Kolom (uuid, komoditas, area_provinsi,            | Kolom3=Nilai3    |             |
 |                   | area_kota, size, harga, tanggal, timestamp)       |                  |             |
-| --range           | Cari data berdasarkan range dari kolom. Kolom     | Kolom1=Min1:Max2 | Optional    |
-|                   | (harga, size, tanggal)                            | Kolom2=Min2:Max2 |             |
+| --range           | Cari data berdasarkan range dari kolom. Kolom     | Kolom1=Min1,Max2 | Optional    |
+|                   | (harga, size, tanggal)                            | Kolom2=Min2,Max2 |             |
 | --order           | Urut data berdasarkan kolom. Kolom (uuid,         | Kolom            | Optional    |
 |                   | komoditas, area_provinsi, area_kota, size, harga, |                  | (tanggal)   |
 |                   | tanggal, timestamp)                               |                  |             |
