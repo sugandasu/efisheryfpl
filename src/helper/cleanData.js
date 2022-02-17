@@ -4,7 +4,7 @@ const parseSheetDateTime = require("./parseSheetDateTime");
 
 module.exports = function cleanData(data) {
   if (dataIsEmpty(data)) {
-    return data;
+    return [];
   }
   const newData = [];
 
