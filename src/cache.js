@@ -9,7 +9,7 @@ class cache {
     });
   }
 
-  get(key, callbackFunction) {
+  getAsync(key, callbackFunction) {
     const value = this.cache.get(key);
 
     if (value) {
@@ -20,6 +20,18 @@ class cache {
       this.cache.set(key, result);
       return result;
     });
+  }
+
+  get(key) {
+    const value = this.cache.get(key);
+
+    if (value) {
+      return value;
+    }
+  }
+
+  set(key, value) {
+    this.cache.set(key, value);
   }
 
   del(keys) {
