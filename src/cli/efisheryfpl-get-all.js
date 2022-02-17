@@ -3,8 +3,11 @@ const { sheetList, columnList } = require("../helper/getCliVariables");
 const convertColumnsToSheets = require("../helper/convertColumnsToSheets");
 const orderData = require("../helper/orderData");
 const cleanData = require("../helper/cleanData");
+const filterRangeData = require("../helper/filterRangeData");
 const limitData = require("../helper/limitData");
 const getAll = require("../lib/getAll");
+const convertRangeToRangeObject = require("../helper/convertRangeToRangeObject");
+const dataIsEmpty = require("../utils/dataIsEmpty");
 
 const command = new Command("all");
 
@@ -14,21 +17,29 @@ command
   .option("-o, --offset <number>", "Lewati data", 0)
   .option(
     "-s, --search <kolom=nilai...>",
-    `Cari data berdasarkan daftar kolom=nilai, cth: komoditas="Ikan Salmon", kolom (${columnList.join(
+    `Cari data berdasarkan daftar kolom=nilai, cth: komoditas="Ikan Salmon" area_kota="Buleleng". Kolom (${columnList.join(
       ", "
     )})`
   )
   .option(
+    "--range <kolom=min,max...>",
+    `Cari data berdasarkan daftar kolom=nilai, cth: harga=50000,150000 tanggal="2022-02-15","2022-02-30". Kolom (harga, size, tanggal)`
+  )
+  .option(
     "--order <kolom>",
     `Urut data berdasarkan kolom, kolom(${columnList.join(", ")})`,
-    "tgl_parsed"
+    "tanggal"
   )
   .option("--order-direction <direction>", `Pengurutan data (asc/desc)`, "asc");
 
 command.action((options) => {
   const searchOptions = {};
+  let rangeOptions = {};
   if (options.search) {
     searchOptions.search = convertColumnsToSheets(options.search);
+  }
+  if (options.range) {
+    rangeOptions = convertRangeToRangeObject(options.range);
   }
 
   getAll(searchOptions).then((data) => {
@@ -39,10 +50,12 @@ command.action((options) => {
 
     const cleanedData = cleanData(data.data);
 
-    if (sheetList.indexOf(options.order) === -1) {
+    if (columnList.indexOf(options.order) === -1) {
       console.log({ success: data.success, data: cleanedData });
       return;
     }
+
+    let optionalData = [];
 
     const orderedData = orderData(
       cleanedData,
@@ -50,9 +63,17 @@ command.action((options) => {
       options.orderDirection
     );
 
-    const limitedData = limitData(orderedData, options.limit, options.offset);
+    if (!dataIsEmpty(rangeOptions)) {
+      optionalData = filterRangeData(orderedData, rangeOptions);
+    } else {
+      optionalData = orderedData;
+    }
 
-    console.log({ success: data.success, data: limitedData });
+    if (!dataIsEmpty(options.limit)) {
+      optionalData = limitData(optionalData, options.limit, options.offset);
+    }
+
+    console.log({ success: data.success, data: optionalData });
   });
 });
 
